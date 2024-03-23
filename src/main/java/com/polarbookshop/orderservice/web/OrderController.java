@@ -3,10 +3,7 @@ package com.polarbookshop.orderservice.web;
 import com.polarbookshop.orderservice.domain.Order;
 import com.polarbookshop.orderservice.service.OrderService;
 import jakarta.validation.Valid;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
@@ -24,6 +21,7 @@ public class OrderController {
         return orderService.getAllOrders();
     }
 
+    @PostMapping
     public Mono<Order> submitOrder(@RequestBody @Valid OrderRequest orderRequest) {
         return orderService.submitOrder(orderRequest.isbn(), orderRequest.quantity());
     }
