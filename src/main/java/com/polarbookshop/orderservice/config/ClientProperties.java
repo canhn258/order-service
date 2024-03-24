@@ -6,6 +6,5 @@ import java.net.URI;
 
 @ConfigurationProperties(prefix = "polar")
 public record ClientProperties(
-        URI catalogServiceUri
-) {
-}
+    URI catalogServiceUri
+) {}
