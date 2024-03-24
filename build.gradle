@@ -15,6 +15,12 @@ repositories {
     mavenCentral()
 }
 
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
 ext {
     set('springCloudVersion', "2023.0.0")
     set('testcontainersVersion', "1.17.3")
@@ -32,6 +38,8 @@ dependencies {
     runtimeOnly 'org.flywaydb:flyway-core' // Flyway doesn't support R2DBC yet
     runtimeOnly 'org.postgresql:postgresql'
     runtimeOnly 'org.springframework:spring-jdbc'
+
+    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.springframework.boot:spring-boot-testcontainers'
