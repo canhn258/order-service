@@ -26,6 +26,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-webflux'
     implementation 'org.springframework.cloud:spring-cloud-starter-config'
     implementation 'org.springframework.retry:spring-retry'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
 
     runtimeOnly 'org.postgresql:r2dbc-postgresql'
     runtimeOnly 'org.flywaydb:flyway-core' // Flyway doesn't support R2DBC yet
