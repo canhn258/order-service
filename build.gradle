@@ -15,6 +15,10 @@ repositories {
     mavenCentral()
 }
 
+ext {
+    set('testcontainersVersion', "1.17.3")
+}
+
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-r2dbc'
     implementation 'org.springframework.boot:spring-boot-starter-validation'
@@ -30,6 +34,15 @@ dependencies {
     testImplementation 'io.projectreactor:reactor-test'
     testImplementation 'org.testcontainers:junit-jupiter'
     testImplementation 'org.testcontainers:r2dbc'
+    testImplementation 'com.squareup.okhttp3:mockwebserver'
+    testImplementation 'org.testcontainers:postgresql'
+
+}
+
+dependencyManagement {
+    imports {
+        mavenBom "org.testcontainers:testcontainers-bom:${testcontainersVersion}"
+    }
 }
 
 tasks.named('test') {
