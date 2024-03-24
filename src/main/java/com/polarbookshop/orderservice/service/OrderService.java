@@ -31,7 +31,7 @@ public class OrderService {
     }
 
     public static Order buildAcceptedOrder(Book book, int quantity) {
-        return Order.of(book.isbn(), book.title() + " _ " + book.author(), book.price(), quantity, OrderStatus.ACCEPTED);
+        return Order.of(book.isbn(), book.title() + " - " + book.author(), book.price(), quantity, OrderStatus.ACCEPTED);
     }
 
     public static Order buildRejectedOrder(String bookIsbn, int quantity) {
